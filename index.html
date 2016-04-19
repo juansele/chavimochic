@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Chavimochic - aplicación</title>
+	<!-- Meta data -->
+	<meta name="description" content="Meta description....">
+	<!-- Meta viewport (likely adaptation responsive) -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Import dependencies CSS angular-materiaL -->
+	<link rel="stylesheet" type="text/css" href="lib/bower_components/angular-material/angular-material.min.css">
+	<!-- Import dependencies CSS ui-leaflet -->
+	<link rel="stylesheet" type="text/css" href="lib/bower_components/leaflet/dist/leaflet.css">
+	<!-- Import CUSTOM CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body ng-app="chaviApp">
+	
+	<!--Main container-->
+	<section id="container-main" ng-view layout="row"></section>
+
+	<!-- Import dependencies -->
+	<!-- Version Index -->
+	<!-- ** -->
+	<!-- angular.js v1.5.3 -->
+	<!-- angular-animate.js v1.5.3 -->
+	<!-- angular-aria.js v1.5.3 -->
+	
+	<script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-aria/angular-aria.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-messages/angular-messages.min.js"></script>
+	<script type="text/javascript" src="lib/bower_components/angular-material/angular-material.min.js"></script>
+
+	<!-- Leaflet- dependencies -->
+	<script type="text/javascript" src="lib/bower_components/leaflet/dist/leaflet.js"></script>
+	<script type="text/javascript" src="lib/bower_components/ui-leaflet/dist/ui-leaflet.min.js"></script>
+
+	<!-- Dependencies our app -->
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+</body>
+</html>
