@@ -57,6 +57,7 @@
     },
     "sectores": {
         "Educación": {
+            "class_color": "educacion",
             "analfabetismo": "",
             "ningun_nivel": "",
             "inicial": "",

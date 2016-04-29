@@ -1,104 +1,180 @@
 
-<div class="info" layout="row" style="background: #eee;">
+
+<div class="info" layout="row" layout-align="center start" layout-wrap style="background: #eee;height: 300px; position: relative;">
 	
-	<div flex="100" layout="row" layout-align="space-between center">
-		<div flex class="square-info ind1">
-			<div class="cont-data">
-				1.5
-			</div>
-			<div class="title-label">Educación</div>
+	<div flex="90" layout="row" layout-align="center center" style="height: 80px;">
+		<div class="main-mod-selected" layout="row" layout-align="center center">
+			<div><i class="icon-map"></i></div>
 		</div>
-		<div flex class="square-info ind2">
-			<div class="cont-data">
-				1.5
-			</div>
-			<div class="title-label">Salud</div>
-		</div>
-		<div flex class="square-info ind3">
-			<div class="cont-data">
-				2.0
-			</div>
-			<div class="title-label">Pobreza</div>
-		</div>
-		<div flex class="square-info ind4">
-			<div class="cont-data">
-				3.5
-			</div>
-			<div class="title-label">A. Economi</div>
-		</div>
-		<div flex class="square-info ind5">
-			<div class="cont-data">
-				2.9
-			</div>
-			<div class="title-label">Ambiente</div>
+		<div class="dropdown-custom" flex="100" layout="row" layout-align="space-between center">
+			<div class="cont-text">Selecciona un distrito</div>
+			<button flex="10" class="btn-list">
+				<i class="icon-arrow_down"></i>
+				<i class="icon-arrow_up" ng-if="openM1 == true"></i>
+			</button>
 		</div>
 	</div>
-	
-</div>
-<div class="cabecera-mod" layout="row">
-	<div flex="10"></div>
-	<div flex="80">
-		<h1>Dimensiones</h1>
-	</div>
-	<div flex="10"></div>
-</div>
 
-<div class="info" layout="row">
-	
-	<div flex="100">
-		<div class="accordion">
+	<div flex="100" layout="row" layout-wrap layout-align="center center" style="margin-top: 0.6em;">
+		<div flex="90">
+			<div class="title-no-margin-medium">Provincias</div>
+		</div>
 
-			<div ng-repeat="(sector, metricas) in chavimochic.sectores">
-				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM1}" ng-click="openM1=!openM1" ng-init="openM1 = false">
-					<div flex layout="row">
-						<div flex="5"></div>
-						<div flex="95" layout="row">
-							<div flex="10" layout="row" layout-align="start center" class="color-educacion">
-								<div><i class="icon-donut"></i></div>
-							</div>
-							<div flex="60" class="label-item" layout="row" layout-align="start center">
-								<div>{{sector}}</div>
-							</div>
-							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
-									
-									<i class="icon-pin"></i>
-									<i class="icon-poligon"></i>
-
-								<button class="btn-list" style="border-left: 1px solid #eee;">
-									<i class="icon-arrow_down" ng-if="openM1 == false"></i>
-									<i class="icon-arrow_up" ng-if="openM1 == true"></i>
-								</button>
-							</div>
-						</div>
-						
-					</div>
-					
+		<div class="scroll-provincias" flex="90" layout="row" layout-wrap layout-align="center center">
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
 				</div>
-				<!-- Detail -->
-				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM1}">
-					<div flex="5"></div>
-					<div flex="90" layout="row" layout-wrap>
-						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
-							<div flex class="title-metric">Check</div>
-							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
-							<div flex class="title-metric">Actual</div>
-							<div flex class="title-metric">Ideal</div>
-							<div flex class="title-metric">POl</div>
-						</div>
-						
-						<div class="row-info" flex="100" layout="row" layout-align="space-between center" ng-repeat="(metrica, value) in metricas">
-							<div flex class="row-data"><input type="checkbox" value="" ></div>
-							<div flex="50" class="title-metric" style="text-align: left;">{{metrica}}</div>
-							<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].actual}}</div>
-							<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].optimo}}</div>
-							<div flex class="row-data"><i class="icon-poligon"></i></div>
-						</div>
-                        
-					</div>
-					<div flex="5"></div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
+				</div>
+			</div>
+			<div layout="row" flex="100" class="row-provincia">
+				<div flex="75">Nombre provincia</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">15.3%</div>
+					<div>ind</div>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="section-sectores">
+	
+	<div class="cabecera-mod" layout="row" layout-align="end center">
+		<div flex="5"></div>
+		<div flex="50">
+			<div class="title-no-margin-medium">Sectores</div>
+		</div>
+		<div flex="40" layout="row" layout-align="center center">
+			<div class="circle-data ind1" layout="row" layout-align="center center"><div>1.5</div></div>
+			<div class="circle-data ind2" layout="row" layout-align="center center"><div>1.5</div></div>
+			<div class="circle-data ind3" layout="row" layout-align="center center"><div>2.0</div></div>
+			<div class="circle-data ind4" layout="row" layout-align="center center"><div>3.5</div></div>
+			<div class="circle-data ind5" layout="row" layout-align="center center"><div>2.9</div></div>
+		</div>
+		<div flex="5"></div>
+	</div>
+
+	
+	<div class="scroll-sectores">
+		
+		<div class="info" layout="row">
+			
+			<div flex="100">
+				<div class="accordion">
+					<div ng-repeat="(sector, metricas) in chavimochic.sectores">
+						<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM1}" ng-click="openM1=!openM1" ng-init="openM1 = false">
+							<div flex layout="row">
+								<div flex="5"></div>
+								<div flex="95" layout="row">
+									<div flex="10" layout="row" layout-align="start center" class="color-{{sector}}">
+										<div><i class="icon-donut"></i></div>
+									</div>
+									<div flex="60" class="label-item" layout="row" layout-align="start center">
+										<div>{{sector}}</div>
+									</div>
+									<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+											
+											<i class="icon-pin"></i>
+											<i class="icon-poligon"></i>
+
+										<button class="btn-list">
+											<i class="icon-arrow_down" ng-if="openM1 == false"></i>
+											<i class="icon-arrow_up" ng-if="openM1 == true"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<!-- Detail -->
+						<div class="inner-metrics" layout="row" layout-align="center center" layout-wrap ng-class="{'open-metrics': openM1}">
+							
+							<div flex="95" layout="row" layout-wrap>
+								<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+									<div flex class="title-metric"></div>
+									<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+									<div flex class="title-metric">Actual</div>
+									<div flex class="title-metric">Ideal</div>
+									<div flex class="title-metric">Simular</div>
+								</div>
+								
+								<div class="row-info" flex="100" layout="row" layout-align="space-between center" ng-repeat="(metrica, value) in metricas">
+									<div flex class="row-data">
+										<div class="eye-btn"><i class="icon-view" ng-class="{'color-marcado':true}"></i></div>
+									</div>
+									<div flex="50" class="title-metric" style="text-align: left;">{{metrica}}</div>
+									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].actual}}</div>
+									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].optimo}}</div>
+									<div flex class="row-data"><input type="checkbox" value="" ></div>
+								</div>
+		                        
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
 	</div>
 	
 </div>

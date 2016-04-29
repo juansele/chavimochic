@@ -1,7 +1,7 @@
 <!--home-chavimochik-->
 <section layout="row" flex="100">
 	<!-- sSection left -->
-	<div class="container-info" flex="35">
+	<div class="container-info" flex="40">
 
 		<!-- Ng-include templates mod. Info -->
 		<div ng-include="template.url"></div>
@@ -19,7 +19,17 @@
 		</div>
 	</div>
 	<!-- Section Right (content map leaflet)-->
-	<div class="container-map" flex="75">
+	<div class="container-map" flex="60">
+		<nav layout="row" layout-align="space-between center">
+			<div flex="60" class="part-left" style="height: 62px;">
+				
+			</div>
+			<div flex="40" layout="row" layout-align="end center" class="part-logos" style="height: 62px;">
+				<img style="width: 110px;margin:0em 0.8em;" src="img/logo_geografia_urbana.svg">
+				<img style="width: 110px;margin:0em 0.8em;" src="img/logo_cvf.svg">
+				<img style="width: 110px;margin:0em 0.8em;" src="img/logo_mvcs.svg">
+			</div>
+		</nav>
 		<!-- leaflet-directive -->
 		<leaflet id="map" center="center"></leaflet>
 	</div>

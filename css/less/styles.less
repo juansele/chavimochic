@@ -47,11 +47,11 @@
 
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?fjtmz7');
-    src:    url('fonts/icomoon.eot?fjtmz7#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?fjtmz7') format('truetype'),
-        url('fonts/icomoon.woff?fjtmz7') format('woff'),
-        url('fonts/icomoon.svg?fjtmz7#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?rq55k5');
+    src:    url('fonts/icomoon.eot?rq55k5#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?rq55k5') format('truetype'),
+        url('fonts/icomoon.woff?rq55k5') format('woff'),
+        url('fonts/icomoon.svg?rq55k5#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -74,11 +74,8 @@
 .icon-map:before {
     content: "\e903";
 }
-.icon-map2:before {
-    content: "\e904";
-}
-.icon-eye:before {
-    content: "\e905";
+.icon-view:before {
+    content: "\e900";
 }
 .icon-arrow_down:before {
     content: "\e906";
@@ -86,15 +83,13 @@
 .icon-arrow_up:before {
     content: "\e907";
 }
-.icon-pin:before {
-    content: "\e900";
-}
 .icon-donut:before {
     content: "\e901";
 }
-.icon-poligon:before {
-    content: "\e902";
-}
+
+
+
+
 
 
 
@@ -122,6 +117,13 @@
   transition: all @value ease-in-out;
 }
 
+.mixin-border-radius(@value: 10em){
+	-webkit-border-radius: @value;
+	-moz-border-radius: @value;
+	-o-border-radius: @value;
+	border-radius: @value;
+}
+
 /**/
 
 body,html{
@@ -133,11 +135,11 @@ body,html{
 	overflow: hidden;
 }
 
-nav{
-	background: #2792AD;
-	height: 60px;
+nav{	
+	height: 62px;
 	z-index: 1020;
 	width: 100%;
+	top: 0;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -147,6 +149,12 @@ nav{
 	-moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 	-ms-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 	-o-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	.part-left{
+		background: #4A9CCC;
+	}
+	.part-logos{
+		background: #4A9CCC;
+	}
 }
 
 /**/
@@ -154,8 +162,8 @@ nav{
 #container-main{
 	position: absolute;
 	left:0;
+	top: 0;
 	right: 0;
-	top: 60px;
 	bottom: 0;
 	z-index: 1;
 	.container-info{
@@ -165,10 +173,10 @@ nav{
 		-moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 		-ms-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
 		-o-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
-		border-right: 1px solid #ccc;
 		.cabecera-mod{
 			padding-top: 2em;
-			
+			padding-bottom: 1.5em;
+			border-bottom: 1px solid #eee;
 		}
 	}
 	.container-map{
@@ -183,12 +191,10 @@ p{
 
 #map{
 	position: absolute;
-	min-height: 100%;
-	height: 100%;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	top: 0;
+	top: 60px;
 }
 
 h1{font-size: 25px;text-transform: capitalize;font-family: @font-aller-bold;letter-spacing: -1px;}
@@ -231,6 +237,17 @@ button{
 	background: #cc2a50;
 }
 
+.eye-btn{
+	font-size: 20px;
+	cursor: pointer;
+	text-align: left;
+	padding: 0em 0.5em;
+}
+
+.color-marcado{
+	color: #4A9CCC;
+}
+
 
 /* square */
 
@@ -240,50 +257,84 @@ button{
 @color-aeconomica: #31656E;
 @color-ambiente: #76AB54;
 
-.color-educacion{color: #F37D30;}
-.color-salud{color: #64ACA3;}
-.color-pobreza{color: #AD9150;}
-.color-aeconomica{color: #31656E;}
-.color-ambiente{color: #76AB54;}
+.color-Educación{color: #F37D30;}
+.color-Salud{color: #64ACA3;}
+.color-Pobreza{color: #AD9150;}
+.color-Empleo{color: #31656E;}
+.color-Actividad Económica{color: #76AB54;}
 
 .square-info{
 	color: rgba(255,255,255,0.8);
 }
-.ind1{
-	.title-label{font-size: 13px; background: @color-educacion - 20; text-align: center;padding: 0.4em 0em;font-family: @font-aller-bold;color:rgba(255,255,255,0.8);}
-	.cont-data{font-size: 28px;text-align: center;padding:0.6em 0em;}
-}
 
-
-.ind2{
-	.title-label{font-size: 13px; background: @color-salud - 20; text-align: center;padding: 0.4em 0em;font-family: @font-aller-bold;color:rgba(255,255,255,0.8);}
-	.cont-data{font-size: 28px;text-align: center;padding:0.6em 0em;}
-}
-
-
-.ind3{
-	.title-label{font-size: 13px; background: @color-pobreza - 20; text-align: center;padding: 0.4em 0em;font-family: @font-aller-bold;color:rgba(255,255,255,0.8);}
-	.cont-data{font-size: 28px;text-align: center;padding:0.6em 0em;}
-}
-
-
-.ind4{
-	.title-label{font-size: 13px; background: @color-aeconomica - 20; text-align: center;padding: 0.4em 0em;font-family: @font-aller-bold;color:rgba(255,255,255,0.8);}
-	.cont-data{font-size: 28px;text-align: center;padding:0.6em 0em;}
-}
-
-
-.ind5{
-	.title-label{font-size: 13px; background: @color-ambiente - 20; text-align: center;padding: 0.4em 0em;font-family: @font-aller-bold;color:rgba(255,255,255,0.8);}
-	.cont-data{font-size: 28px;text-align: center;padding:0.6em 0em;}
-}
-
+.ind1,
+.ind2,
+.ind3,
+.ind4,
+.ind5{color: rgba(255,255,255,0.9);font-size: 13px;}
 
 .ind1{background: @color-educacion}
 .ind2{background: @color-salud}
 .ind3{background: @color-pobreza}
 .ind4{background: @color-aeconomica}
 .ind5{background: @color-ambiente}
+
+/* Section sectores */
+
+.section-sectores{
+	position: absolute;
+	top:300px; 
+	left:0;
+	right:0; 
+	bottom: 0;
+	.scroll-sectores{
+		position: absolute;
+		top:92px; 
+		left:0;
+		right:0; 
+		bottom: 0; 
+		overflow: auto;
+	}
+}
+
+
+/*Circle data*/
+
+.circle-data{
+	width: 36px;
+	height: 36px;
+	padding: 0.6em;
+	.mixin-border-radius();
+	margin: 0em 0.3em;
+}
+
+/* DROPDOWN CUSTOM */
+
+.main-mod-selected{
+	width: 45px;
+	height:45px; 
+	background: #76ab54; 
+	color: white;
+	border-top-left-radius:4px;
+	border-bottom-left-radius:4px;
+}
+
+.dropdown-custom{
+	background: #fcfcfc;
+	height: 45px;
+	.mixin-border-radius(4px);
+	border: 1px solid #EAEAEA;
+	.cont-text{
+		padding: 0em 1em;
+	}
+}
+
+.dropdown-custom:hover{
+	background: #f8f8f8;
+	cursor: pointer;
+	outline: none;
+}
+
 
 /* accordion */
 
@@ -335,10 +386,13 @@ a{
 			font-family: @font-body;
 		}
 	}
+	.row-info:hover{
+		background: #f8f8f8;
+	}
 }
 
 .open-metrics{
-	max-height: 400px;
+	max-height: 4000px;
 	padding: 0.5em 0em;
 	.mixin-transition-all(0.5s);
 }
@@ -351,5 +405,33 @@ button.btn-list{
     margin: 0 .2em;
     color: #9c9c9c;
     width: 45px;
+    text-align: center;
+    cursor: pointer;
+    border-left: 1px solid #eee;
     /* border-top: 1px solid; */
+}
+
+.title-no-margin{
+	font-size: 23px;font-family: Aller-Bold;	
+}
+
+.title-no-margin-medium{
+	font-size: 18px;font-family: Aller-Bold;
+}
+
+.row-provincia{
+	padding: 0.6em 0em;
+	font-size: 14px;
+}
+
+.scroll-provincias{
+	overflow: auto;
+	overflow: auto;
+	min-height: 170px !important;
+	max-height: 170px !important;
+	margin-top: 1em;
+}
+
+.text-bold{
+	font-family: @font-title;
 }
