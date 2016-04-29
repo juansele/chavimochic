@@ -134,8 +134,8 @@ app.controller('mainController', function($scope, $http){
     /////////
     angular.extend($scope, {
         center: {
-            lat: -1.259311,
-            lng: -78.524037,
+            lat: -10.280419,
+            lng: -76.408341,
             zoom: 8
         },
         defaults: {

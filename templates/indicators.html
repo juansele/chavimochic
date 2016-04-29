@@ -2,95 +2,84 @@
 
 <div class="info" layout="row" layout-align="center start" layout-wrap style="background: #eee;height: 300px; position: relative;">
 	
-	<div flex="90" layout="row" layout-align="center center" style="height: 80px;">
+	<div class="union"></div>
+
+	<div flex="90" layout="row" layout-align="center center" style="height: 92px;">
 		<div class="main-mod-selected" layout="row" layout-align="center center">
 			<div><i class="icon-map"></i></div>
 		</div>
-		<div class="dropdown-custom" flex="100" layout="row" layout-align="space-between center">
+		<div class="dropdown-custom" flex="100" layout="row" layout-align="space-between center" ng-click="drop=!drop" ng-init="drop=false">
 			<div class="cont-text">Selecciona un distrito</div>
 			<button flex="10" class="btn-list">
-				<i class="icon-arrow_down"></i>
-				<i class="icon-arrow_up" ng-if="openM1 == true"></i>
+				<i class="icon-arrow_down" ng-if="drop == false"></i>
+				<i class="icon-arrow_up" ng-if="drop == true"></i>
 			</button>
 		</div>
 	</div>
 
-	<div flex="100" layout="row" layout-wrap layout-align="center center" style="margin-top: 0.6em;">
+	<!-- Lista del dropdown -->
+	<div class="list-dropdown" ng-class="{'open-list-dropdown': drop}">
+		<ul>
+			<li>Item de la lista 1</li>
+			<li>Item de la lista 2</li>
+			<li>Item de la lista 3</li>
+			<li>Item de la lista 4</li>
+			<li>Item de la lista 5</li>
+			<li>Item de la lista 6</li>
+			<li>Item de la lista 7</li>
+			<li>Item de la lista 8</li>
+			<li>Item de la lista 9</li>
+			<li>Item de la lista 10</li>
+			<li>Item de la lista 11</li>
+			<li>Item de la lista 12</li>
+		</ul>
+	</div>
+
+	<div flex="100" layout="row" layout-wrap layout-align="center center" >
 		<div flex="90">
-			<div class="title-no-margin-medium">Provincias</div>
+			<div class="title-no-margin-medium" layout="row" layout-align="space-between center" style="opacity: 0.8;">
+				<div>Ranking de provincias</div>
+				<div class="btn-information set-tooltip">
+					<i class="icon-information"></i>
+
+					<!-- TOOLTIP -->
+					<div class="tooltip tooltip-show tool-right" layout="row" layout-wrap layout-align="center center">
+						<!-- body tooltip -->
+						<div class="body-tooltip" flex>
+							Información
+						</div>
+						<div class="pic-tooltip-right"></div>
+					</div>
+
+				</div>
+
+			</div>
 		</div>
 
-		<div class="scroll-provincias" flex="90" layout="row" layout-wrap layout-align="center center">
+		<div class="scroll-provincias" flex="90" layout="row" layout-wrap style="border-top: 1px solid #ccc;padding:0.5em 0em;">
 			<div layout="row" flex="100" class="row-provincia">
 				<div flex="75">Nombre provincia</div>
 				<div flex="25" layout="row" layout-align="space-around center">
 					<div class="text-bold">15.3%</div>
-					<div>ind</div>
+					<div><i class="icon-ind-up"></i> 2</div>
 				</div>
 			</div>
 			<div layout="row" flex="100" class="row-provincia">
 				<div flex="75">Nombre provincia</div>
 				<div flex="25" layout="row" layout-align="space-around center">
 					<div class="text-bold">15.3%</div>
-					<div>ind</div>
+					<div><i class="icon-ind-down"></i> 3</div>
 				</div>
 			</div>
 			<div layout="row" flex="100" class="row-provincia">
 				<div flex="75">Nombre provincia</div>
 				<div flex="25" layout="row" layout-align="space-around center">
 					<div class="text-bold">15.3%</div>
-					<div>ind</div>
+					<div><i class="icon-ind-static"></i> 0</div>
 				</div>
 			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div>ind</div>
-				</div>
-			</div>
+			
+			
 		</div>
 	</div>
 </div>
@@ -132,8 +121,45 @@
 									</div>
 									<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
 											
-											<i class="icon-pin"></i>
-											<i class="icon-poligon"></i>
+											<div class="content-icon content-check set-tooltip">
+												<input type="checkbox" id="1"></input>
+												<label for="1"></label>
+
+												<!-- TOOLTIP -->
+												<div class="tooltip tooltip-show tool-bottom" layout="row" layout-wrap layout-align="center center">
+													<!-- body tooltip -->
+													<div class="body-tooltip" flex="100">
+														Simular ideal
+													</div>
+													<div class="pic-tooltip-bottom"></div>
+												</div>
+											</div>
+
+											<div class="content-icon set-tooltip">
+												<i class="icon-view"></i>
+
+												<!-- TOOLTIP -->
+												<div class="tooltip tooltip-show tool-bottom" layout="row" layout-wrap layout-align="center center">
+													<!-- body tooltip -->
+													<div class="body-tooltip" flex="100">
+														Ver sector
+													</div>
+													<div class="pic-tooltip-bottom"></div>
+												</div>
+											</div>
+
+											<div class="content-icon set-tooltip">
+												<i class="icon-information"></i>
+
+												<!-- TOOLTIP -->
+												<div class="tooltip tooltip-show tool-bottom" layout="row" layout-wrap layout-align="center center">
+													<!-- body tooltip -->
+													<div class="body-tooltip" flex="100">
+														Información
+													</div>
+													<div class="pic-tooltip-bottom"></div>
+												</div>
+											</div>
 
 										<button class="btn-list">
 											<i class="icon-arrow_down" ng-if="openM1 == false"></i>
@@ -163,7 +189,12 @@
 									<div flex="50" class="title-metric" style="text-align: left;">{{metrica}}</div>
 									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].actual}}</div>
 									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].optimo}}</div>
-									<div flex class="row-data"><input type="checkbox" value="" ></div>
+									<div flex class="row-data" layout="row" layout-align="center center">
+										<div class="content-check">
+											<input type="checkbox" id="1"></input>
+											<label for="1"></label>
+										</div>
+									</div>
 								</div>
 		                        
 							</div>
