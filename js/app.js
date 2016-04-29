@@ -1,6 +1,6 @@
 //Creation module angular
 
-var app = angular.module('chaviApp',['ngMaterial','ngRoute','ui-leaflet']);
+var app = angular.module('chaviApp', ['ngMaterial','ngRoute','ui-leaflet']);
 
 //Configuration paths url
 
