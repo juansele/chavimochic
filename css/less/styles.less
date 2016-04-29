@@ -584,7 +584,7 @@ button.btn-list{
 .tooltip{
 	min-width: 100px;
 	position: absolute;
-	z-index: 1030;
+	z-index: 1050;
 	transition: all .4s cubic-bezier(.25,.8,.25,1);
 	-webkit-transition: all .4s cubic-bezier(.25,.8,.25,1);
 	-moz-transition: all .4s cubic-bezier(.25,.8,.25,1);
@@ -633,14 +633,18 @@ button.btn-list{
 
 
 .tool-top{
-	bottom: -55px;
+	top: -55px;
 	left: -13px;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
 }
 .tool-bottom{
-
+	top: -40px;
+	left: -40px;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 .tool-left{
 	bottom:-8px;
@@ -650,7 +654,7 @@ button.btn-list{
 	margin-bottom: auto;
 }
 .tool-right{
-	left: -85px;
+	left: -100px;
 	right: 0;
 	top: 0;
 	bottom:0;
@@ -663,5 +667,10 @@ button.btn-list{
 	.tooltip-show{
 		transform: scale(1,1);
 		opacity: 1;
+	}
+}
+.content-icon{
+	i{
+		font-size: 20px;
 	}
 }
