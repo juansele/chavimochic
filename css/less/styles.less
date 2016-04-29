@@ -47,11 +47,11 @@
 
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?ifkhdj');
-    src:    url('fonts/icomoon.eot?ifkhdj#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?ifkhdj') format('truetype'),
-        url('fonts/icomoon.woff?ifkhdj') format('woff'),
-        url('fonts/icomoon.svg?ifkhdj#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?c485jg');
+    src:    url('fonts/icomoon.eot?c485jg#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?c485jg') format('truetype'),
+        url('fonts/icomoon.woff?c485jg') format('woff'),
+        url('fonts/icomoon.svg?c485jg#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -73,6 +73,9 @@
 
 .icon-map:before {
     content: "\e903";
+}
+.icon-information:before {
+    content: "\e908";
 }
 .icon-ind-up:before {
     content: "\e902";
@@ -99,13 +102,9 @@
 
 
 
-
-
-
-
-
-
-
+.meta-text{
+	font-size: 13px;
+}
 
 
 
@@ -316,6 +315,7 @@ button{
 	padding: 0.6em;
 	.mixin-border-radius();
 	margin: 0em 0.3em;
+	font-family: @font-title;
 }
 
 /* DROPDOWN CUSTOM */
@@ -334,6 +334,7 @@ button{
 	height: 45px;
 	.mixin-border-radius(4px);
 	border: 1px solid #EAEAEA;
+	outline: none;
 	.cont-text{
 		padding: 0em 1em;
 	}
@@ -343,6 +344,55 @@ button{
 	background: #f8f8f8;
 	cursor: pointer;
 	outline: none;
+}
+
+.open-list-dropdown{
+	max-height: 185px !important;
+	opacity: 1 !important;
+}
+
+.list-dropdown{
+	max-height: 0px;
+	position: absolute;
+	background: white;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: auto;
+	top: 80px;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	-ms-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	-o-box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+	.mixin-border-radius(4px);
+	.mixin-transition-all();
+	z-index: 1030;
+	ul{
+		padding: 0px;
+		li{
+			padding: 0.9em 1em;
+			list-style: none;
+			border-bottom: 1px solid #eee;
+			font-size: 14px;
+			cursor: pointer;
+			outline: none;
+			.mixin-transition-all();
+		}
+		li:hover{
+			background: #f7f7f7;
+		}
+		li:active{
+			background: #4A9CCC;
+			color: white;
+		}
+		li:last-child{
+			border:none;
+		}
+	}
 }
 
 
@@ -432,6 +482,7 @@ button.btn-list{
 .row-provincia{
 	padding: 0.6em 0em;
 	font-size: 14px;
+	opacity: 0.8;
 }
 
 .scroll-provincias{
@@ -444,4 +495,173 @@ button.btn-list{
 
 .text-bold{
 	font-family: @font-title;
+}
+
+.union{
+	width: 0;
+    height: 0;
+    border-top: 12px solid transparent;
+    border-left: 14px solid #eee;
+    border-bottom: 13px solid transparent;
+    position: absolute;
+    top: 15px;
+    right: -10px;
+    z-index: 1021;
+}
+
+.btn-information{
+	font-size: 19px;
+}
+
+/* BASE STYLE CHECKBOX */
+.content-check{
+	margin: 0.2em 0em;
+}
+/* Base for label styling */
+.content-check input[type="checkbox"]:not(:checked),
+.content-check input[type="checkbox"]:checked {
+	display: none;
+}
+.content-check input[type="checkbox"]:not(:checked) + label,
+.content-check input[type="checkbox"]:checked + label {
+	position: relative;
+	padding-left: 1.5em;
+	cursor: pointer;
+	font-size: 15px;
+	width: 100%;
+	font-family: @font-body;
+}
+
+/* checkbox aspect */
+.content-check input[type="checkbox"]:not(:checked) + label:before,
+.content-check input[type="checkbox"]:checked + label:before {
+	content: url(../img/check_base-01.svg);
+	width: 15px;
+	height:15px;
+	position: absolute;
+	left:0; 
+	top: 0;
+	.mixin-transition-all()
+}
+/* checked mark aspect */
+.content-check input[type="checkbox"]:not(:checked) + label:after,
+.content-check input[type="checkbox"]:checked + label:after {
+	content: url(../img/check_base-02.svg);
+	width: 15px;
+	height:15px;
+	position: absolute;
+	left:0; 
+	top: 0;
+	.mixin-transition-all()
+}
+/* checked mark aspect changes */
+.content-check input[type="checkbox"]:not(:checked)  + label:after{
+	opacity: 0;
+	transform: scale(0);
+}
+.content-check input[type="checkbox"]:checked + label:after {
+	opacity: 1;
+	transform: scale(1);
+}
+/* disabled checkbox */
+.content-check input[type="checkbox"]:disabled:not(:checked) + label:before,
+.content-check input[type="checkbox"]:disabled:checked + label:before {
+	box-shadow: none;
+	border-color: #bbb;
+	background-color: #ddd;
+}
+.content-check input[type="checkbox"]:disabled:checked + label:after {
+	color: #999;
+}
+.content-check input[type="checkbox"]:disabled + label {
+	color: #aaa;
+}
+
+.set-tooltip{
+	position: relative;
+}
+
+.tooltip{
+	min-width: 100px;
+	position: absolute;
+	z-index: 1030;
+	transition: all .4s cubic-bezier(.25,.8,.25,1);
+	-webkit-transition: all .4s cubic-bezier(.25,.8,.25,1);
+	-moz-transition: all .4s cubic-bezier(.25,.8,.25,1);
+	-ms-transition: all .4s cubic-bezier(.25,.8,.25,1);
+	-o-transition: all .4s cubic-bezier(.25,.8,.25,1);
+	transform: scale(0,0);
+	opacity: 0;
+	.pic-tooltip-top{
+		width: 0;
+		height: 0;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-bottom: 4px solid rgba(11,47,59,0.9);
+	}
+	.pic-tooltip-bottom{
+		width: 0;
+		height: 0;
+		border-left: 9px solid transparent;
+		border-right: 9px solid transparent;
+		border-top: 4px solid rgba(11,47,59,0.9);
+	}
+	.pic-tooltip-left{
+		width: 0;
+		height: 0;
+		border-top: 8px solid transparent;
+		border-right: 5px solid rgba(11,47,59,0.9);
+		border-bottom: 8px solid transparent;
+	}
+	.pic-tooltip-right{
+		width: 0;
+		height: 0;
+		border-top: 8px solid transparent;
+		border-left: 5px solid rgba(11,47,59,0.9);
+		border-bottom:8px solid transparent;
+	}
+	.body-tooltip{
+		background: rgba(11,47,59,0.9);
+		border-radius: 8px;
+		padding: 0.7em;
+		color: rgba(255,255,255,0.8);
+		text-align: center;
+		font-size: 12.5px;
+		text-transform: capitalize;
+	}
+}
+
+
+.tool-top{
+	bottom: -55px;
+	left: -13px;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.tool-bottom{
+
+}
+.tool-left{
+	bottom:-8px;
+	left: 35px;
+	right: 0;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.tool-right{
+	left: -85px;
+	right: 0;
+	top: 0;
+	bottom:0;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+
+.set-tooltip:hover{
+	.tooltip-show{
+		transform: scale(1,1);
+		opacity: 1;
+	}
 }
