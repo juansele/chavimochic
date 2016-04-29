@@ -1,3 +1,40 @@
+
+<div class="info" layout="row" style="background: #eee;">
+	
+	<div flex="100" layout="row" layout-align="space-between center">
+		<div flex class="square-info ind1">
+			<div class="cont-data">
+				1.5
+			</div>
+			<div class="title-label">Educación</div>
+		</div>
+		<div flex class="square-info ind2">
+			<div class="cont-data">
+				1.5
+			</div>
+			<div class="title-label">Salud</div>
+		</div>
+		<div flex class="square-info ind3">
+			<div class="cont-data">
+				2.0
+			</div>
+			<div class="title-label">Pobreza</div>
+		</div>
+		<div flex class="square-info ind4">
+			<div class="cont-data">
+				3.5
+			</div>
+			<div class="title-label">A. Economi</div>
+		</div>
+		<div flex class="square-info ind5">
+			<div class="cont-data">
+				2.9
+			</div>
+			<div class="title-label">Ambiente</div>
+		</div>
+	</div>
+	
+</div>
 <div class="cabecera-mod" layout="row">
 	<div flex="10"></div>
 	<div flex="80">
@@ -6,143 +43,375 @@
 	<div flex="10"></div>
 </div>
 
-<div class="info" layout="row" style="margin-top: 2em;">
-	<div flex="10"></div>
-	<div flex="80" layout="row">
-		<div flex class="square-info ind1">
-			<div class="title-label">Educación</div>
-			<div class="cont-data">
-				1.5
-			</div>
-		</div>
-		<div flex class="square-info ind2">
-			<div class="title-label">Salud</div>
-			<div class="cont-data">
-				1.5
-			</div>
-		</div>
-		<div flex class="square-info ind3">
-			<div class="title-label">Pobreza</div>
-			<div class="cont-data">
-				2.0
-			</div>
-		</div>
-		<div flex class="square-info ind4">
-			<div class="title-label">A. Economi</div>
-			<div class="cont-data">
-				3.5
-			</div>
-		</div>
-		<div flex class="square-info ind5">
-			<div class="title-label">
-				Ambiente
-			</div>
-			<div class="cont-data">
-				2.9
-			</div>
-		</div>
-	</div>
-	<div flex="10"></div>
-</div>
-
-<div class="info" layout="row" style="margin-top: 4em;">
-	<div flex="10"></div>
-	<div flex="80">
+<div class="info" layout="row">
+	
+	<div flex="100">
 		<div class="accordion">
 
 			<div>
-				<div class="item-accordion" layout="row" layout-align="space-between center">
-					<div flex="10">ico</div>
-					<div flex="75"><b>Educación</b></div>
-					<div flex="15"><a href="#">Map</a> <a href="#">Pol</a></div>
-				</div>
-				<!-- Detail -->
-				<div></div>
-			</div>
+				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM1}" ng-click="openM1=!openM1" ng-init="openM1 = false">
+					<div flex layout="row">
+						<div flex="5"></div>
+						<div flex="95" layout="row">
+							<div flex="10" layout="row" layout-align="start center" class="color-educacion">
+								<div><i class="icon-donut"></i></div>
+							</div>
+							<div flex="60" class="label-item" layout="row" layout-align="start center">
+								<div>Educación</div>
+							</div>
+							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+									
+									<i class="icon-pin"></i>
+									<i class="icon-poligon"></i>
 
-			<div>
-				<div class="item-accordion" layout="row" layout-align="space-between center">
-					<div flex="10">ico</div>
-					<div flex="75"><b>Salud</b></div>
-					<div flex="15"><a href="#">Map</a> <a href="#">Pol</a></div>
-				</div>
-				<!-- Detail -->
-				<div></div>
-			</div>
-
-			<div>
-				<div class="item-accordion" layout="row" layout-align="space-between center" ng-click="openM=!openM">
-					<div flex="10">ico</div>
-					<div flex="75"><b>Pobreza</b></div>
-					<div flex="15"><a href="#">Map</a> <a href="#">Pol</a></div>
-				</div>
-				<!-- Detail -->
-				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM}">
-					<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
-						<div flex class="title-metric">Check</div>
-						<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
-						<div flex class="title-metric">Actual</div>
-						<div flex class="title-metric">Ideal</div>
-						<div flex class="title-metric">Map</div>
+								<button class="btn-list" style="border-left: 1px solid #eee;">
+									<i class="icon-arrow_down" ng-if="openM1 == false"></i>
+									<i class="icon-arrow_up" ng-if="openM1 == true"></i>
+								</button>
+							</div>
+						</div>
+						
 					</div>
 					
-					<div class="row-info" flex="100" layout="row" layout-align="space-between center">
-						<div flex class="row-data">|_|</div>
-						<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
-						<div flex class="row-data">41%</div>
-						<div flex class="row-data">65%</div>
-						<div flex class="row-data">Map</div>
+				</div>
+				<!-- Detail -->
+				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM1}">
+					<div flex="5"></div>
+					<div flex="90" layout="row" layout-wrap>
+						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="title-metric">Check</div>
+							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+							<div flex class="title-metric">Actual</div>
+							<div flex class="title-metric">Ideal</div>
+							<div flex class="title-metric">POl</div>
+						</div>
+						
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data"><i class="icon-poligon"></i></div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data"><i class="icon-poligon"></i></div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data"><i class="icon-poligon"></i></div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data"><i class="icon-poligon"></i></div>
+						</div>
 					</div>
+					<div flex="5"></div>
+				</div>
+			</div>
 
-					<div class="row-info" flex="100" layout="row" layout-align="space-between center">
-						<div flex class="row-data">|_|</div>
-						<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
-						<div flex class="row-data">41%</div>
-						<div flex class="row-data">65%</div>
-						<div flex class="row-data">Map</div>
+			<div>
+				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM2}" ng-click="openM2=!openM2" ng-init="openM2=false">
+					<div flex layout="row">
+						<div flex="5"></div>
+						<div flex="95" layout="row">
+							<div flex="10" layout="row" layout-align="start center" class="color-salud">
+								<div><i class="icon-donut"></i></div>
+							</div>
+							<div flex="60" class="label-item" layout="row" layout-align="start center">
+								<div>Salud</div>
+							</div>
+							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+								<i class="icon-pin"></i>
+									<i class="icon-poligon"></i>
+
+								<button class="btn-list" style="border-left: 1px solid #eee;">
+									<i class="icon-arrow_down" ng-if="openM2 == false"></i>
+									<i class="icon-arrow_up" ng-if="openM2 == true"></i>
+								</button>
+							</div>
+						</div>
 					</div>
+				</div>
+				<!-- Detail -->
+				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM2}">
+					<div flex="5"></div>
+					<div flex="90" layout="row" layout-wrap>
+						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="title-metric">Check</div>
+							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+							<div flex class="title-metric">Actual</div>
+							<div flex class="title-metric">Ideal</div>
+							<div flex class="title-metric">Map</div>
+						</div>
+						
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
 
-					<div class="row-info" flex="100" layout="row" layout-align="space-between center">
-						<div flex class="row-data">|_|</div>
-						<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
-						<div flex class="row-data">41%</div>
-						<div flex class="row-data">65%</div>
-						<div flex class="row-data">Map</div>
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
 					</div>
+					<div flex="5"></div>
+				</div>
+			</div>
 
-					<div class="row-info" flex="100" layout="row" layout-align="space-between center">
-						<div flex class="row-data">|_|</div>
-						<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
-						<div flex class="row-data">41%</div>
-						<div flex class="row-data">65%</div>
-						<div flex class="row-data">Map</div>
+			<div>
+				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM3}" ng-click="openM3=!openM3" ng-init="openM3=false">
+					<div flex layout="row">
+						<div flex="5"></div>
+						<div flex="95" layout="row">
+							<div flex="10" layout="row" layout-align="start center" class="color-pobreza">
+								<div><i class="icon-donut"></i></div>
+							</div>
+							<div flex="60" class="label-item" layout="row" layout-align="start center">
+								<div>Pobreza</div>
+							</div>
+							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+								<i class="icon-pin"></i>
+									<i class="icon-poligon"></i>
+
+								<button class="btn-list" style="border-left: 1px solid #eee;">
+									<i class="icon-arrow_down" ng-if="openM3 == false"></i>
+									<i class="icon-arrow_up" ng-if="openM3 == true"></i>
+								</button>
+							</div>
+						</div>
+						
 					</div>
+				</div>
+				<!-- Detail -->
+				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM3}">
+					<div flex="5"></div>
+					<div flex="90" layout="row" layout-wrap>
+						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="title-metric">Check</div>
+							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+							<div flex class="title-metric">Actual</div>
+							<div flex class="title-metric">Ideal</div>
+							<div flex class="title-metric">Map</div>
+						</div>
+						
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
 
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
 
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+					</div>
+					<div flex="5"></div>
 
 				</div>
 			</div>
 
 			<div>
-				<div class="item-accordion" layout="row" layout-align="space-between center">
-					<div flex="10">ico</div>
-					<div flex="75"><b>Actividad Económica</b></div>
-					<div flex="15"><a href="#">Map</a> <a href="#">Pol</a></div>
+				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM4}" ng-click="openM4=!openM4" ng-init="openM4=false">
+					<div flex layout="row">
+						<div flex="5"></div>
+						<div flex="95" layout="row">
+							<div flex="10" layout="row" layout-align="start center" class="color-aeconomica">
+								<div><i class="icon-donut"></i></div>
+							</div>
+							<div flex="60" class="label-item" layout="row" layout-align="start center">
+								<div>Actividad económica</div>
+							</div>
+							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+								<i class="icon-pin"></i>
+									<i class="icon-poligon"></i>
+
+								<button class="btn-list" style="border-left: 1px solid #eee;">
+									<i class="icon-arrow_down" ng-if="openM4 == false"></i>
+									<i class="icon-arrow_up" ng-if="openM4 == true"></i>
+								</button>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 				<!-- Detail -->
-				<div></div>
+				<div class="inner-metrics" layout="row"  layout-wrap ng-class="{'open-metrics': openM4}">
+					<div flex="5"></div>
+					<div flex="90" layout="row" layout-wrap>
+						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="title-metric">Check</div>
+							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+							<div flex class="title-metric">Actual</div>
+							<div flex class="title-metric">Ideal</div>
+							<div flex class="title-metric">Map</div>
+						</div>
+						
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+					</div>
+					<div flex="5"></div>
+
+				</div>
 			</div>
 
 			<div>
-				<div class="item-accordion" layout="row" layout-align="space-between center">
-					<div flex="10">ico</div>
-					<div flex="75"><b>Ambiente</b></div>
-					<div flex="15"><a href="#">Map</a> <a href="#">Pol</a></div>
+				<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM5}" ng-click="openM5=!openM5" ng-init="openM5 = false">
+					<div flex layout="row">
+						<div flex="5"></div>
+						<div flex="95" layout="row">
+							<div flex="10" layout="row" layout-align="start center" class="color-ambiente">
+								<div><i class="icon-donut"></i></div>
+							</div>
+							<div flex="60" class="label-item" layout="row" layout-align="start center">
+								<div>Ambiente</div>
+							</div>
+							<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
+								<i class="icon-pin"></i>
+									<i class="icon-poligon"></i>
+
+								<button class="btn-list" style="border-left: 1px solid #eee;">
+									<i class="icon-arrow_down" ng-if="openM5 == false"></i>
+									<i class="icon-arrow_up" ng-if="openM5 == true"></i>
+								</button>
+							</div>
+						</div>
+						
+					</div>
 				</div>
 				<!-- Detail -->
-				<div></div>
+				<div class="inner-metrics" layout="row" layout-wrap ng-class="{'open-metrics': openM5}">
+					<div flex="5"></div>
+					<div flex="90" layout="row" layout-wrap>
+						<div class="cabecera-titles" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="title-metric">Check</div>
+							<div flex="50" class="title-metric" style="text-align: left;">Metrica</div>
+							<div flex class="title-metric">Actual</div>
+							<div flex class="title-metric">Ideal</div>
+							<div flex class="title-metric">Map</div>
+						</div>
+						
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+
+						<div class="row-info" flex="100" layout="row" layout-align="space-between center">
+							<div flex class="row-data"><input type="checkbox" value="" ></div>
+							<div flex="50" class="title-metric" style="text-align: left;">Nombre metrica</div>
+							<div flex class="row-data">41%</div>
+							<div flex class="row-data">65%</div>
+							<div flex class="row-data">Map</div>
+						</div>
+					</div>
+					<div flex="5"></div>
+
+				</div>
 			</div>
 		</div>
 	</div>
-	<div flex="10"></div>
+	
 </div>
