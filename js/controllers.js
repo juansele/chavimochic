@@ -1,7 +1,7 @@
 // File controllers aplication
 
 // 1. Main controller ----------------------------------------------------------------------------
-app.controller('mainController', function($scope, $http){
+app.controller('mainController', function($scope, $http, $mdDialog, $mdMedia){
     // objeto con todo
     var chavimochic = {
         distritos: {},  // contiene la lista de distritos
@@ -145,5 +145,43 @@ app.controller('mainController', function($scope, $http){
     function std_n_cdf(x) {
         return 0.5 * (1 + erf( x / Math.sqrt(2)) );
     };
+
+
+
+
+
+
+    // Lanzador del Modal
+
+    $scope.showAdvanced = function(ev) {
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+
+        $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'dialogInformation.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose:true,
+            fullscreen: useFullScreen
+        })
+        .then(function(answer) {
+        $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+            $scope.status = 'You cancelled the dialog.';
+        });
+    }
 });
 
+function DialogController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
