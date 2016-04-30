@@ -16,6 +16,32 @@ app.controller('mainController', function($scope, $http, $mdDialog, $mdMedia){
         resultado: {},  // contiene los Pvalues y quintiles para cada metrica
         quintiles: {},  // contiene los quintiles de cada sector
         
+        mapa: {
+            path: {},
+            center: {
+                lat: -1.259311,
+                lng: -78.524037,
+                zoom: 8
+            },
+            defaults: {
+                scrollWheelZoom: false
+            },
+            layers: {
+                overlays: {
+                    distritos: {
+                        name: "Distritos Layer",
+                        type: "group",
+                        visible: true
+                    }
+                }
+            },
+            events: {
+                path: {
+                    enable: ['click']
+                }
+            }
+        },
+        
         init: function(raw){
             this.distritos = raw.distritos;
             this.raw_data = raw.raw_data;
@@ -28,6 +54,17 @@ app.controller('mainController', function($scope, $http, $mdDialog, $mdMedia){
                 for (distrito in this.raw_data[metrica]){
                     this.selector[metrica][distrito] = 'actual';
                 }
+            }
+            
+            for (distrito in this.distritos){
+                this.mapa.path[distrito] = {
+                    latlngs: this.distritos[distrito].coordinates,
+                    stroke: false,
+                    fillColor: '#ff69b4',
+                    fillOpacity: 0.4,
+                    type: 'polygon',
+                    layer: 'distritos'
+                };
             }
             
             this.calcular();
@@ -170,6 +207,12 @@ app.controller('mainController', function($scope, $http, $mdDialog, $mdMedia){
             $scope.status = 'You cancelled the dialog.';
         });
     }
+    
+    
+    // eventos del mapa
+    $scope.$on('leafletDirectivePath.map.click', function(event, args){
+        console.log(event, args);
+    });
 });
 
 function DialogController($scope, $mdDialog) {
