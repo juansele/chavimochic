@@ -8,83 +8,60 @@
 		<div class="main-mod-selected" layout="row" layout-align="center center">
 			<div><i class="icon-map"></i></div>
 		</div>
-		<div class="dropdown-custom" flex="100" layout="row" layout-align="space-between center" ng-click="drop=!drop" ng-init="drop=false">
-			<div class="cont-text">Selecciona un distrito</div>
+		<div class="dropdown-custom" flex="100" layout="row" layout-align="space-between center" ng-click="chavimochic.distrito.drop=!chavimochic.distrito.drop">
+			<div class="cont-text">{{chavimochic.distrito.seleccionado}}</div>
 			<button flex="10" class="btn-list">
-				<i class="icon-arrow_down" ng-if="drop == false"></i>
-				<i class="icon-arrow_up" ng-if="drop == true"></i>
+				<i class="icon-arrow_down" ng-if="chavimochic.distrito.drop == false"></i>
+				<i class="icon-arrow_up" ng-if="chavimochic.distrito.drop == true"></i>
 			</button>
 		</div>
 	</div>
 
 	<!-- Lista del dropdown -->
-	<div class="list-dropdown" ng-class="{'open-list-dropdown': drop}">
+	<div class="list-dropdown" ng-class="{'open-list-dropdown': chavimochic.distrito.drop}">
 		<ul>
-			<li>Item de la lista 1</li>
-			<li>Item de la lista 2</li>
-			<li>Item de la lista 3</li>
-			<li>Item de la lista 4</li>
-			<li>Item de la lista 5</li>
-			<li>Item de la lista 6</li>
-			<li>Item de la lista 7</li>
-			<li>Item de la lista 8</li>
-			<li>Item de la lista 9</li>
-			<li>Item de la lista 10</li>
-			<li>Item de la lista 11</li>
-			<li>Item de la lista 12</li>
+			<li ng-repeat="(distrito, value) in chavimochic.distritos" ng-click="chavimochic.seleccionar_distrito(distrito)">{{distrito}}</li>
 		</ul>
 	</div>
-
+   
+<!-- juan estuvo aca -->   
+<div ng-if="chavimochic.distrito.sin_seleccionar">
 	<div flex="100" layout="row" layout-wrap layout-align="center center" >
 		<div flex="90">
 			<div class="title-no-margin-medium" layout="row" layout-align="space-between center" style="opacity: 0.8;">
-				<div>Ranking de provincias</div>
-				<div class="btn-information set-tooltip" ng-click="showAdvanced($event)">
-					<i class="icon-information"></i>
+				<div>Ranking de Zona Homogénea</div>
+				<div class="btn-information set-tooltip" ng-click="chavimochic.ver_zonas()">
+					<i class="icon-view"></i>
 
 					<!-- TOOLTIP -->
 					<div class="tooltip tooltip-show tool-right" layout="row" layout-wrap layout-align="center center">
 						<!-- body tooltip -->
 						<div class="body-tooltip" flex>
-							Información
+							Ver Zonas
 						</div>
 						<div class="pic-tooltip-right"></div>
 					</div>
 
 				</div>
-
 			</div>
 		</div>
 
 		<div class="scroll-provincias" flex="90" layout="row" layout-wrap style="    border-top: 1px solid #E2E1E1;padding:0.5em 0em;">
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div><i class="icon-ind-up"></i> 2</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div><i class="icon-ind-down"></i> 3</div>
-				</div>
-			</div>
-			<div layout="row" flex="100" class="row-provincia">
-				<div flex="75">Nombre provincia</div>
-				<div flex="25" layout="row" layout-align="space-around center">
-					<div class="text-bold">15.3%</div>
-					<div><i class="icon-ind-static"></i> 0</div>
-				</div>
-			</div>
 			
+            <div layout="row" flex="100" class="row-provincia" ng-repeat="distrito in chavimochic.distritos | orderDistritos:chavimochic.calificacion:chavimochic.distritos[chavimochic.distrito.seleccionado].zona">
+				<div flex="75">{{distrito.key}}</div>
+				<div flex="25" layout="row" layout-align="space-around center">
+					<div class="text-bold">{{estilo.formato_metrica(chavimochic.calificacion[distrito.key],'porcentaje')}}</div>
+					<!--<div><i class="icon-ind-up"></i> 2</div>-->
+				</div>
+			</div>
 			
 		</div>
 	</div>
 </div>
+</div>
 
-<div class="section-sectores">
+<div class="section-sectores" ng-if="chavimochic.distrito.sin_seleccionar">
 	
 	<div class="cabecera-mod" layout="row" layout-align="end center">
 		<div flex="5"></div>
@@ -92,11 +69,11 @@
 			<div class="title-no-margin-medium">Sectores</div>
 		</div>
 		<div flex="40" layout="row" layout-align="center center">
-			<div class="circle-data ind1" layout="row" layout-align="center center"><div>1.5</div></div>
-			<div class="circle-data ind2" layout="row" layout-align="center center"><div>1.5</div></div>
-			<div class="circle-data ind3" layout="row" layout-align="center center"><div>2.0</div></div>
-			<div class="circle-data ind4" layout="row" layout-align="center center"><div>3.5</div></div>
-			<div class="circle-data ind5" layout="row" layout-align="center center"><div>2.9</div></div>
+			<div class="circle-data ind1" layout="row" layout-align="center center"><div>{{chavimochic.quintiles[chavimochic.distrito.seleccionado]['Educación']}}</div></div>
+			<div class="circle-data ind2" layout="row" layout-align="center center"><div>{{chavimochic.quintiles[chavimochic.distrito.seleccionado]['Salud']}}</div></div>
+			<div class="circle-data ind3" layout="row" layout-align="center center"><div>{{chavimochic.quintiles[chavimochic.distrito.seleccionado]['Pobreza']}}</div></div>
+			<div class="circle-data ind4" layout="row" layout-align="center center"><div>{{chavimochic.quintiles[chavimochic.distrito.seleccionado]['Empleo']}}</div></div>
+			<div class="circle-data ind5" layout="row" layout-align="center center"><div>{{chavimochic.quintiles[chavimochic.distrito.seleccionado]['Actividad Económica']}}</div></div>
 		</div>
 		<div flex="5"></div>
 	</div>
@@ -109,7 +86,7 @@
 			<div flex="100">
 				<div class="accordion">
 					<div ng-repeat="(sector, metricas) in chavimochic.sectores">
-						<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM1}" ng-click="openM1=!openM1" ng-init="openM1 = false">
+						<div class="item-accordion" layout="row" ng-class="{'item-accordion-selected': openM1}" ng-init="openM1 = false">
 							<div flex layout="row">
 								<div flex="5"></div>
 								<div flex="95" layout="row">
@@ -122,8 +99,8 @@
 									<div flex="30" layout="row" layout-align="space-between center" style="text-align: right;color: #ccc;">
 											
 											<div class="content-icon content-check set-tooltip">
-												<input type="checkbox" id="1"></input>
-												<label for="1"></label>
+												<input type="checkbox" id="{{sector}}-{{chavimochic.distrito.seleccionado}}" ng-click="chavimochic.simular_sector(sector,chavimochic.distrito.seleccionado)"></input>
+                                                <label for="{{sector}}-{{chavimochic.distrito.seleccionado}}"></label>
 
 												<!-- TOOLTIP -->
 												<div class="tooltip tooltip-show tool-bottom" layout="row" layout-wrap layout-align="center center">
@@ -135,8 +112,8 @@
 												</div>
 											</div>
 
-											<div class="content-icon set-tooltip">
-												<i class="icon-view"></i>
+											<div class="content-icon set-tooltip" ng-click="chavimochic.ver_sector_mapa(sector)">
+												<i class="icon-view" ng-class="{'color-marcado':chavimochic.metrica_sector.sector == sector}"></i>
 
 												<!-- TOOLTIP -->
 												<div class="tooltip tooltip-show tool-bottom" layout="row" layout-wrap layout-align="center center">
@@ -148,7 +125,7 @@
 												</div>
 											</div>
 
-											<div class="content-icon set-tooltip">
+											<div class="content-icon set-tooltip" ng-click="mostrar_informacion($event, sector, chavimochic.distrito.seleccionado, chavimochic.informacion[sector][chavimochic.distrito.seleccionado], estilo.color_sector[sector])">
 												<i class="icon-information"></i>
 
 												<!-- TOOLTIP -->
@@ -161,7 +138,7 @@
 												</div>
 											</div>
 
-										<button class="btn-list">
+										<button class="btn-list" ng-click="openM1=!openM1" >
 											<i class="icon-arrow_down" ng-if="openM1 == false"></i>
 											<i class="icon-arrow_up" ng-if="openM1 == true"></i>
 										</button>
@@ -183,16 +160,16 @@
 								</div>
 								
 								<div class="row-info" flex="100" layout="row" layout-align="space-between center" ng-repeat="(metrica, value) in metricas">
-									<div flex class="row-data">
-										<div class="eye-btn"><i class="icon-view" ng-class="{'color-marcado':true}"></i></div>
+									<div flex class="row-data" ng-click="chavimochic.ver_metrica_mapa(metrica, sector)">
+										<div class="eye-btn"><i class="icon-view" ng-class="{'color-marcado':chavimochic.metrica_sector.metrica == metrica}"></i></div>
 									</div>
-									<div flex="50" class="title-metric" style="text-align: left;">{{metrica}}</div>
-									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].actual}}</div>
-									<div flex class="row-data">{{chavimochic.raw_data[metrica]['Paijan'].optimo}}</div>
+									<div flex="50" class="title-metric" style="text-align: left;">{{chavimochic.metricas[metrica].etiqueta}}</div>
+									<div flex class="row-data">{{estilo.formato_metrica(chavimochic.raw_data[metrica][chavimochic.distrito.seleccionado].actual, chavimochic.metricas[metrica].tipo)}}</div>
+									<div flex class="row-data">{{estilo.formato_metrica(chavimochic.raw_data[metrica][chavimochic.distrito.seleccionado].optimo, chavimochic.metricas[metrica].tipo)}}</div>
 									<div flex class="row-data" layout="row" layout-align="center center">
 										<div class="content-check">
-											<input type="checkbox" id="1"></input>
-											<label for="1"></label>
+											<input type="checkbox" id="{{metrica}}-{{chavimochic.distrito.seleccionado}}" ng-model="chavimochic.simular[metrica][chavimochic.distrito.seleccionado]" ng-click="chavimochic.simular_metrica(metrica,chavimochic.distrito.seleccionado)"></input>
+											<label for="{{metrica}}-{{chavimochic.distrito.seleccionado}}"></label>
 										</div>
 									</div>
 								</div>
@@ -215,8 +192,8 @@
 <script type="text/ng-template" id="dialogInformation.tmpl.html"><md-dialog aria-label="Mango (Fruit)"  ng-cloak>
   <form>
     <md-toolbar>
-      <div class="md-toolbar-tools">
-        <h2>Título MODAL</h2>
+      <div class="md-toolbar-tools" style="background:{{color}};">
+        <h2>{{distrito}} - {{dimension}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="cancel()">
           <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -229,21 +206,11 @@
       	<div layout="row" layout-align="center center">
       		<div flex="45" style="margin: 0em 2em;">
       			<h3>Proyectos</h3>
-      			<p>
-      				The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
-      			</p>
-      			<p>
-      				The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
-      			</p>
+      			<div ng-bind-html="informacion.Proyectos"></div>
       		</div>
       		<div flex="45" style="margin: 0em 2em;">
       			<h3>Programas</h3>
-      			<p>
-      				The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
-      			</p>
-      			<p>
-      				The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
-      			</p>
+                <div ng-bind-html="informacion.Programas"></div>
       		</div>
       	</div>
     

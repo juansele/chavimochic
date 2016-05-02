@@ -2,7 +2,6 @@
 <section layout="row" flex="100">
 	<!-- sSection left -->
 	<div class="container-info" flex="40">
-
 		<!-- Ng-include templates mod. Info -->
 		<div ng-include="template.url"></div>
 
@@ -33,6 +32,16 @@
 			</div>
 		</nav>
 		<!-- leaflet-directive -->
-		<leaflet id="map" center="center"></leaflet>
+		<leaflet 
+            id="map" 
+            
+            bounds="chavimochic.mapa.bounds"
+            layers = "chavimochic.mapa.layers"
+            defaults="chavimochic.mapa.defaults" 
+            event-broadcast="chavimochic.mapa.events"
+
+            paths = "chavimochic.mapa.path"
+            tiles = "chavimochic.mapa.tiles">
+        </leaflet>
 	</div>
 </section>
