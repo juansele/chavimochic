@@ -7,13 +7,17 @@
 
 		<!-- Container buttons -->
 		<div class="cont-buttons-actions" ng-class="{'go-down': template.nombre == 'indicadores'}" layout="row">
-			<button class="btn-yellow" flex="50">
-				<div class=""></div>
-				<div class="">Ver tutorial</div>
-			</button>
-			<button class="btn-magenta" flex="50" ng-click="comenzar(1);">
-				<div class=""></div>
-				<div class="">Comenzar ya</div>
+			<a href="#" class="btn-yellow" flex="50">
+				<div class="btn-tutorial" layout="row" layout-align="center center">
+					<div><i class="icon-help"></i></div>
+					<div style="color: #222;margin-left: 0.5em;">Ver tutorial</div>
+				</div>
+			</a>
+			<button class="btn-magenta" layout="row" layout-align="center center" flex="50" ng-click="comenzar(1);">
+				<div style="margin-top: 0.5em;" layout="row" layout-align="center center" >
+					<div class="" style="margin-right: 0.5em;opacity: 0.8;margin-top: -0.5em;">Comenzar ya</div>
+					<div style="font-size: 19px;"><i class="icon-arrow_right"></i></div>
+				</div>
 			</button>
 		</div>
 	</div>
